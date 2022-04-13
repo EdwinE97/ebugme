@@ -2,6 +2,7 @@ import Avatar from "react-avatar";
 
 const Post = (props) => {
     return (
+        
         <div id="post">
             <div className="post__column">
                 <div id="post__column__profile__image__container">

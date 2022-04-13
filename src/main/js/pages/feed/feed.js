@@ -16,7 +16,7 @@ const Home = (props) => {
         // Updates state variable to store the values in local storage at a specified key
         // And provide a default value of props.posts which is a json file declared in the file structure
         setPosts(getStorageValue("post", props.posts));
-    }, []);
+    }, [props.posts]);
 
     return (
         <>
