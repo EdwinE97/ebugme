@@ -1,5 +1,4 @@
 import Avatar from "react-avatar";
-
 const Post = (props) => {
     return (
         <div id="post">

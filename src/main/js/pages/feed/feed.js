@@ -16,28 +16,31 @@ const Home = (props) => {
         // Updates state variable to store the values in local storage at a specified key
         // And provide a default value of props.posts which is a json file declared in the file structure
         setPosts(getStorageValue("post", props.posts));
-    }, []);
-
+    }, [props.posts]);
     return (
+        
         <>
             <Navigation title="LOGO " />
             <div id="home">
                 <div>
                     {/* Displays the posts stored in the posts state variable */}
-                    <Link
-                        to={`/story/${props.posts[0].id}`}
-                        key={props.posts[0].id}
+
+                    {props.posts.map((data) =>(
+                        <Link
+                        to={`/story/${data.id}`}
+                        key={data.id}
                     >
                         <Post
-                            title={props.posts[0].title}
-                            postImage={props.posts[0].postImage}
-                            text={props.posts[0].text}
-                            author={props.posts[0].author}
-                            group={props.posts[0].group}
-                            date={props.posts[0].date}
-                            read_length={props.posts[0].read_length}
+                            title={data.title}
+                            postImage={data.postImage}
+                            text={data.text}
+                            author={data.author}
+                            group={data.group}
+                            date={data.date}
+                            read_length={data.read_length}
                         />
                     </Link>
+                    ))}
                 </div>
                 {/* Displays the New Writer UI Component */}
                 <NewWriter />
